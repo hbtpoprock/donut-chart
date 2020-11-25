@@ -10,11 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var chart: CircularProgressMeter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        chart.progressArray = [0.0234, 0.2345, 0.0545, 0.1435, 0.5441]
     }
-
+    
+    func tetst() {
+        
+    }
 
 }
 
