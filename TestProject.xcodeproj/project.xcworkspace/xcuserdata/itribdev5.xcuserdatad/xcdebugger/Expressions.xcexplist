@@ -20,16 +20,13 @@
                value = "abs(dist - circleRadius) &lt;= maxDiff">
             </PersistentString>
             <PersistentString
+               value = "startAngle1">
+            </PersistentString>
+            <PersistentString
                value = "topBoundingRect.contains(CGPoint(x: point.x, y: point.y))">
             </PersistentString>
             <PersistentString
-               value = "endAngle3">
-            </PersistentString>
-            <PersistentString
-               value = "startAngle3">
-            </PersistentString>
-            <PersistentString
-               value = "startAngle4">
+               value = "endAngle1">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

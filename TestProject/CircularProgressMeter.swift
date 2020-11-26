@@ -25,16 +25,50 @@ class CircularProgressMeter: UIView {
     private let progressValueLabel4 = UILabel()
     private let progressValueLabel5 = UILabel()
     
-    var startAngle1 = CGFloat.pi*3/2
-    var endAngle1 = CGFloat.pi*3/2
-    var startAngle2 = CGFloat.pi*3/2
-    var endAngle2 = CGFloat.pi*3/2
-    var startAngle3 = CGFloat.pi*3/2
-    var endAngle3 = CGFloat.pi*3/2
-    var startAngle4 = CGFloat.pi*3/2
-    var endAngle4 = CGFloat.pi*3/2
-    var startAngle5 = CGFloat.pi*3/2
-    var endAngle5 = CGFloat.pi*3/2
+    var startAngle1_1 = CGFloat.pi*3/2
+    var endAngle1_1 = CGFloat.pi*3/2
+    var startAngle1_2 = CGFloat.pi*3/2
+    var endAngle1_2 = CGFloat.pi*3/2
+    var startAngle1_3 = CGFloat.pi*3/2
+    var endAngle1_3 = CGFloat.pi*3/2
+    var startAngle1_4 = CGFloat.pi*3/2
+    var endAngle1_4 = CGFloat.pi*3/2
+    
+    var startAngle2_1 = CGFloat.pi*3/2
+    var endAngle2_1 = CGFloat.pi*3/2
+    var startAngle2_2 = CGFloat.pi*3/2
+    var endAngle2_2 = CGFloat.pi*3/2
+    var startAngle2_3 = CGFloat.pi*3/2
+    var endAngle2_3 = CGFloat.pi*3/2
+    var startAngle2_4 = CGFloat.pi*3/2
+    var endAngle2_4 = CGFloat.pi*3/2
+    
+    var startAngle3_1 = CGFloat.pi*3/2
+    var endAngle3_1 = CGFloat.pi*3/2
+    var startAngle3_2 = CGFloat.pi*3/2
+    var endAngle3_2 = CGFloat.pi*3/2
+    var startAngle3_3 = CGFloat.pi*3/2
+    var endAngle3_3 = CGFloat.pi*3/2
+    var startAngle3_4 = CGFloat.pi*3/2
+    var endAngle3_4 = CGFloat.pi*3/2
+    
+    var startAngle4_1 = CGFloat.pi*3/2
+    var endAngle4_1 = CGFloat.pi*3/2
+    var startAngle4_2 = CGFloat.pi*3/2
+    var endAngle4_2 = CGFloat.pi*3/2
+    var startAngle4_3 = CGFloat.pi*3/2
+    var endAngle4_3 = CGFloat.pi*3/2
+    var startAngle4_4 = CGFloat.pi*3/2
+    var endAngle4_4 = CGFloat.pi*3/2
+    
+    var startAngle5_1 = CGFloat.pi*3/2
+    var endAngle5_1 = CGFloat.pi*3/2
+    var startAngle5_2 = CGFloat.pi*3/2
+    var endAngle5_2 = CGFloat.pi*3/2
+    var startAngle5_3 = CGFloat.pi*3/2
+    var endAngle5_3 = CGFloat.pi*3/2
+    var startAngle5_4 = CGFloat.pi*3/2
+    var endAngle5_4 = CGFloat.pi*3/2
     
     var availableRadians: Double = Double.pi*2
     var spaceBetweenLine: Double = Double.pi*15/180
@@ -170,8 +204,8 @@ class CircularProgressMeter: UIView {
         
         addPath(to: circleShape1, availableRadians: availableRadians, progress: progress1)
         
-        startAngle1 = CGFloat.pi*3/2
-        endAngle1 = startAngle1 + CGFloat(availableRadians*progress1)
+        startAngle1_1 = CGFloat.pi*3/2
+        endAngle1_1 = startAngle1_1 + CGFloat(availableRadians*progress1)
     }
     
     func redraw2() {
@@ -180,8 +214,8 @@ class CircularProgressMeter: UIView {
         
         addPath(to: circleShape2, availableRadians: availableRadians, progress: progress2)
         
-        startAngle2 = CGFloat.pi*3/2 + CGFloat(availableRadians*progress1+spaceBetweenLine)
-        endAngle2 = startAngle2 + CGFloat(availableRadians*progress2)
+        startAngle2_1 = CGFloat.pi*3/2 + CGFloat(availableRadians*progress1+spaceBetweenLine)
+        endAngle2_1 = startAngle2_1 + CGFloat(availableRadians*progress2)
     }
     
     func redraw3() {
@@ -192,11 +226,11 @@ class CircularProgressMeter: UIView {
         
         addPath(to: circleShape3, availableRadians: availableRadians, progress: progress3)
         
-        startAngle3 = CGFloat.pi*3/2 + CGFloat(
+        startAngle3_1 = CGFloat.pi*3/2 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
                 (availableRadians*progress2+spaceBetweenLine)
         )
-        endAngle3 = startAngle3 + CGFloat(availableRadians*progress3)
+        endAngle3_1 = startAngle3_1 + CGFloat(availableRadians*progress3)
     }
     
     func redraw4() {
@@ -208,12 +242,12 @@ class CircularProgressMeter: UIView {
         
         addPath(to: circleShape4, availableRadians: availableRadians, progress: progress4)
         
-        startAngle4 = CGFloat.pi*3/2 + CGFloat(
+        startAngle4_1 = CGFloat.pi*3/2 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
                 (availableRadians*progress2+spaceBetweenLine) +
                 (availableRadians*progress3+spaceBetweenLine)
         )
-        endAngle4 = startAngle4 + CGFloat(availableRadians*progress4)
+        endAngle4_1 = startAngle4_1 + CGFloat(availableRadians*progress4)
     }
     
     func redraw5() {
@@ -226,13 +260,13 @@ class CircularProgressMeter: UIView {
         
         addPath(to: circleShape5, availableRadians: availableRadians, progress: progress5)
         
-        startAngle5 = CGFloat.pi*3/2 + CGFloat(
+        startAngle5_1 = CGFloat.pi*3/2 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
                 (availableRadians*progress2+spaceBetweenLine) +
                 (availableRadians*progress3+spaceBetweenLine) +
                 (availableRadians*progress4+spaceBetweenLine)
         )
-        endAngle5 = startAngle5 + CGFloat(availableRadians*progress5)
+        endAngle5_1 = startAngle5_1 + CGFloat(availableRadians*progress5)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -253,34 +287,36 @@ class CircularProgressMeter: UIView {
         let topBoundingRect = CGRect(x: 0, y: 0, width: circleRadius*2, height: circleRadius*2)
         
         if abs(dist - circleRadius) <= maxDiff && topBoundingRect.contains(CGPoint(x: point.x, y: point.y)) {
-            print("it finally works")
-            
             let pointAngle = getAngle(x: point.x, y: point.y, centerX: circleCenterX, centerY: circleCenterY)
             
-            startAngle1 = startAngle1 > CGFloat.pi*2 ? startAngle1 - CGFloat.pi*2 : startAngle1
-            endAngle1 = endAngle1 > CGFloat.pi*2 ? endAngle1 - CGFloat.pi*2 : endAngle1
+            startAngle1_1 = startAngle1_1 > CGFloat.pi*2 ? startAngle1_1 - CGFloat.pi*2 : startAngle1_1
+            endAngle1_1 = endAngle1_1 > CGFloat.pi*2 ? endAngle1_1 - CGFloat.pi*2 : endAngle1_1
             
-            startAngle2 = startAngle2 > CGFloat.pi*2 ? startAngle2 - CGFloat.pi*2 : startAngle2
-            endAngle2 = endAngle2 > CGFloat.pi*2 ? endAngle2 - CGFloat.pi*2 : endAngle2
+            startAngle2_1 = startAngle2_1 > CGFloat.pi*2 ? startAngle2_1 - CGFloat.pi*2 : startAngle2_1
+            endAngle2_1 = endAngle2_1 > CGFloat.pi*2 ? endAngle2_1 - CGFloat.pi*2 : endAngle2_1
             
-            startAngle3 = startAngle3 > CGFloat.pi*2 ? startAngle3 - CGFloat.pi*2 : startAngle3
-            endAngle3 = endAngle3 > CGFloat.pi*2 ? endAngle3 - CGFloat.pi*2 : endAngle3
+            startAngle3_1 = startAngle3_1 > CGFloat.pi*2 ? startAngle3_1 - CGFloat.pi*2 : startAngle3_1
+            endAngle3_1 = endAngle3_1 > CGFloat.pi*2 ? endAngle3_1 - CGFloat.pi*2 : endAngle3_1
             
-            startAngle4 = startAngle4 > CGFloat.pi*2 ? startAngle4 - CGFloat.pi*2 : startAngle4
-            endAngle4 = endAngle4 > CGFloat.pi*2 ? endAngle4 - CGFloat.pi*2 : endAngle4
+            startAngle4_1 = startAngle4_1 > CGFloat.pi*2 ? startAngle4_1 - CGFloat.pi*2 : startAngle4_1
+            endAngle4_1 = endAngle4_1 > CGFloat.pi*2 ? endAngle4_1 - CGFloat.pi*2 : endAngle4_1
             
-            startAngle5 = startAngle5 > CGFloat.pi*2 ? startAngle5 - CGFloat.pi*2 : startAngle5
-            endAngle5 = endAngle5 > CGFloat.pi*2 ? endAngle5 - CGFloat.pi*2 : endAngle5
+            startAngle5_1 = startAngle5_1 > CGFloat.pi*2 ? startAngle5_1 - CGFloat.pi*2 : startAngle5_1
+            endAngle5_1 = endAngle5_1 > CGFloat.pi*2 ? endAngle5_1 - CGFloat.pi*2 : endAngle5_1
             
-            if pointAngle >= startAngle1 && pointAngle <= endAngle1 {
+            print("startAngle1: \(startAngle1_1)")
+            print("endAngle1: \(endAngle1_1)")
+            print("pointAngle: \(pointAngle)")
+            
+            if pointAngle >= startAngle1_1 && pointAngle <= endAngle1_1 {
                 print("1")
-            } else if pointAngle >= startAngle2 && pointAngle <= endAngle2 {
+            } else if pointAngle >= startAngle2_1 && pointAngle <= endAngle2_1 {
                 print("2")
-            } else if pointAngle >= startAngle3 && pointAngle <= endAngle3 {
+            } else if pointAngle >= startAngle3_1 && pointAngle <= endAngle3_1 {
                 print("3")
-            } else if pointAngle >= startAngle4 && pointAngle <= endAngle4 {
+            } else if pointAngle >= startAngle4_1 && pointAngle <= endAngle4_1 {
                 print("4")
-            } else if pointAngle >= startAngle5 && pointAngle <= endAngle5 {
+            } else if pointAngle >= startAngle5_1 && pointAngle <= endAngle5_1 {
                 print("5")
             }
         }
