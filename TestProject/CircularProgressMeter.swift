@@ -11,23 +11,19 @@ import UIKit
 
 class CircularProgressMeter: UIView {
     
-    private let circleShape1         = CAShapeLayer()
-    private let circleShape2         = CAShapeLayer()
-    private let circleShape3         = CAShapeLayer()
-    private let circleShape4         = CAShapeLayer()
-    private let circleShape5         = CAShapeLayer()
+    private let circleShape1 = CAShapeLayer()
+    private let circleShape2 = CAShapeLayer()
+    private let circleShape3 = CAShapeLayer()
+    private let circleShape4 = CAShapeLayer()
+    private let circleShape5 = CAShapeLayer()
     
-    private let progressValueLabel1  = UILabel()
-    private let progressValueLabel2  = UILabel()
-    private let progressValueLabel3  = UILabel()
-    private let progressValueLabel4  = UILabel()
-    private let progressValueLabel5  = UILabel()
+    private let backFillCircle = CAShapeLayer()
     
-    private let backFillCircle      = CAShapeLayer()
-    
-    var availableRadians: Double = Double.pi*2
-    var spaceBetweenLine: Double = Double.pi*15/180
-    var numberOfItems: Int = 0
+    private let progressValueLabel1 = UILabel()
+    private let progressValueLabel2 = UILabel()
+    private let progressValueLabel3 = UILabel()
+    private let progressValueLabel4 = UILabel()
+    private let progressValueLabel5 = UILabel()
     
     var startAngle1 = CGFloat.pi*3/2
     var endAngle1 = CGFloat.pi*3/2
@@ -40,6 +36,11 @@ class CircularProgressMeter: UIView {
     var startAngle5 = CGFloat.pi*3/2
     var endAngle5 = CGFloat.pi*3/2
     
+    var availableRadians: Double = Double.pi*2
+    var spaceBetweenLine: Double = Double.pi*15/180
+    var numberOfItems: Int = 0
+    
+    var animationDuration: CFTimeInterval = 1
     var progressArray: [Double] = [] {
         didSet {
             numberOfItems = progressArray.count
@@ -106,7 +107,7 @@ class CircularProgressMeter: UIView {
         self.initView()
     }
     
-    func initView(){
+    func initView() {
         addSubview(progressValueLabel1)
         addSubview(progressValueLabel2)
         addSubview(progressValueLabel3)
@@ -160,78 +161,36 @@ class CircularProgressMeter: UIView {
             width: labelSize.width,
             height: labelSize.height)
         
-        addPath(to: backFillCircle, startAngle: CGFloat.pi*3/2, availableRadians: Double.pi*2, progress: 1)
-    }
-    
-    private func addSublayer(caShapeLayer: CAShapeLayer, uiColor: UIColor, lineWidth: CGFloat = 10) {
-        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: radius,
-            startAngle: CGFloat.pi*3/2,
-            endAngle: CGFloat.pi*3/2 + CGFloat(Double.pi*2),
-            clockwise: true)
-        
-        self.layer.addSublayer(caShapeLayer)
-        caShapeLayer.strokeColor     = uiColor.cgColor
-        caShapeLayer.lineWidth       = 10
-        caShapeLayer.lineCap         = CAShapeLayerLineCap.round
-        caShapeLayer.fillColor       = nil
-        caShapeLayer.path            = nil
-        caShapeLayer.bounds = path.cgPath.boundingBox
-        caShapeLayer.position = CGPoint(x: self.layer.bounds.midX, y: self.layer.bounds.midY)
-    }
-    
-    private func addPath(to caShapeLayer: CAShapeLayer, startAngle: CGFloat, availableRadians: Double, progress: Double ) {
-        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: radius,
-            startAngle: startAngle,
-            endAngle: startAngle + CGFloat(availableRadians*progress),
-            clockwise: true)
-        caShapeLayer.path = path.cgPath
+        addPath(to: backFillCircle, availableRadians: Double.pi*2, progress: 1)
     }
     
     func redraw1() {
-        addPath(to: circleShape1, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress1)
+        let rotateAngle = CGFloat(0)
+        rotateAndDraw(caShapeLayer: circleShape1, rotateAngle: rotateAngle)
         
-        let caTransform3D = CATransform3DMakeRotation(0, 0, 0, 1)
-        
-        circleShape1.addRotateAnimation(caTransform3D: caTransform3D, duration: 1.5) {
-            self.circleShape1.addDrawAnimation(duration: 3)
-        }
+        addPath(to: circleShape1, availableRadians: availableRadians, progress: progress1)
         
         startAngle1 = CGFloat.pi*3/2
         endAngle1 = startAngle1 + CGFloat(availableRadians*progress1)
     }
     
     func redraw2() {
-        addPath(to: circleShape2, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress2)
+        let rotateAngle = CGFloat(availableRadians*progress1+spaceBetweenLine)
+        rotateAndDraw(caShapeLayer: circleShape2, rotateAngle: rotateAngle)
         
-        let caTransform3D = CATransform3DMakeRotation(CGFloat(self.availableRadians*self.progress1+self.spaceBetweenLine), 0, 0, 1)
-        
-        circleShape2.addRotateAnimation(caTransform3D: caTransform3D, duration: 1.5) {
-            self.circleShape2.addDrawAnimation(duration: 3)
-        }
+        addPath(to: circleShape2, availableRadians: availableRadians, progress: progress2)
         
         startAngle2 = CGFloat.pi*3/2 + CGFloat(availableRadians*progress1+spaceBetweenLine)
         endAngle2 = startAngle2 + CGFloat(availableRadians*progress2)
     }
     
     func redraw3() {
-        addPath(to: circleShape3, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress3)
+        let rotateAngle = CGFloat((availableRadians*progress1+spaceBetweenLine) +
+            (availableRadians*progress2+spaceBetweenLine)
+        )
+        rotateAndDraw(caShapeLayer: circleShape3, rotateAngle: rotateAngle)
         
-        let caTransform3D = CATransform3DMakeRotation(CGFloat(
-            (availableRadians*progress1+spaceBetweenLine) +
-                (availableRadians*progress2+spaceBetweenLine)
-        ), 0, 0, 1)
-        
-        circleShape3.addRotateAnimation(caTransform3D: caTransform3D, duration: 1.5) {
-            self.circleShape3.addDrawAnimation(duration: 3)
-        }
+        addPath(to: circleShape3, availableRadians: availableRadians, progress: progress3)
         
         startAngle3 = CGFloat.pi*3/2 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
@@ -241,17 +200,13 @@ class CircularProgressMeter: UIView {
     }
     
     func redraw4() {
-        addPath(to: circleShape4, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress4)
-
-        let caTransform3D = CATransform3DMakeRotation(CGFloat(
-            (availableRadians*progress1+spaceBetweenLine) +
-                (availableRadians*progress2+spaceBetweenLine) +
-                (availableRadians*progress3+spaceBetweenLine)
-        ), 0, 0, 1)
+        let rotateAngle = CGFloat((availableRadians*progress1+spaceBetweenLine) +
+            (availableRadians*progress2+spaceBetweenLine) +
+            (availableRadians*progress3+spaceBetweenLine)
+        )
+        rotateAndDraw(caShapeLayer: circleShape4, rotateAngle: rotateAngle)
         
-        circleShape4.addRotateAnimation(caTransform3D: caTransform3D, duration: 1.5) {
-            self.circleShape4.addDrawAnimation(duration: 3)
-        }
+        addPath(to: circleShape4, availableRadians: availableRadians, progress: progress4)
         
         startAngle4 = CGFloat.pi*3/2 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
@@ -262,15 +217,14 @@ class CircularProgressMeter: UIView {
     }
     
     func redraw5() {
-        addPath(to: circleShape5, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress5)
-        
         let rotateAngle = CGFloat((availableRadians*progress1+spaceBetweenLine) +
             (availableRadians*progress2+spaceBetweenLine) +
             (availableRadians*progress3+spaceBetweenLine) +
             (availableRadians*progress4+spaceBetweenLine)
         )
-        
         rotateAndDraw(caShapeLayer: circleShape5, rotateAngle: rotateAngle)
+        
+        addPath(to: circleShape5, availableRadians: availableRadians, progress: progress5)
         
         startAngle5 = CGFloat.pi*3/2 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
@@ -332,6 +286,111 @@ class CircularProgressMeter: UIView {
         }
     }
     
+    private func addSublayer(caShapeLayer: CAShapeLayer, uiColor: UIColor, lineWidth: CGFloat = 10) {
+        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
+        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
+        let path = UIBezierPath(
+            arcCenter: center,
+            radius: radius,
+            startAngle: CGFloat.pi*3/2,
+            endAngle: CGFloat.pi*3/2 + CGFloat(Double.pi*2),
+            clockwise: true)
+        
+        self.layer.addSublayer(caShapeLayer)
+        caShapeLayer.strokeColor = uiColor.cgColor
+        caShapeLayer.lineWidth = 10
+        caShapeLayer.lineCap = CAShapeLayerLineCap.round
+        caShapeLayer.fillColor = nil
+        caShapeLayer.path = nil
+        caShapeLayer.bounds = path.cgPath.boundingBox
+        caShapeLayer.position = CGPoint(x: self.layer.bounds.midX, y: self.layer.bounds.midY)
+    }
+    
+    private func addPath(to caShapeLayer: CAShapeLayer, availableRadians: Double, progress: Double ) {
+        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
+        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
+        let path = UIBezierPath(
+            arcCenter: center,
+            radius: radius,
+            startAngle: CGFloat.pi*3/2,
+            endAngle: CGFloat.pi*3/2 + CGFloat(availableRadians*progress),
+            clockwise: true)
+        caShapeLayer.path = path.cgPath
+    }
+    
+    private func getRotateAnimation(from fromCaTransform3D: CATransform3D,to toCaTransform3D: CATransform3D, beginTime: CFTimeInterval = 0, duration: CFTimeInterval) -> CABasicAnimation {
+        let animation = CABasicAnimation(keyPath: "transform")
+        animation.fromValue = fromCaTransform3D
+        animation.toValue = toCaTransform3D
+        animation.beginTime = beginTime
+        animation.duration = duration
+        animation.fillMode = CAMediaTimingFillMode.forwards
+        animation.isRemovedOnCompletion = false
+        
+        return animation
+    }
+    
+    private func getGroupAnimation(duration: CFTimeInterval, caBasicAnimationList: [CABasicAnimation]) -> CAAnimationGroup {
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.beginTime = 0
+        groupAnimation.duration = duration
+        groupAnimation.fillMode = CAMediaTimingFillMode.forwards
+        groupAnimation.isRemovedOnCompletion = false
+        groupAnimation.animations = caBasicAnimationList
+        
+        return groupAnimation
+    }
+    
+    private func getDrawAnimation(duration: CFTimeInterval) -> CABasicAnimation {
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = duration
+        animation.fillMode = CAMediaTimingFillMode.forwards
+        animation.isRemovedOnCompletion = false
+        
+        return animation
+    }
+    
+    private func rotateAndDraw(caShapeLayer: CAShapeLayer, rotateAngle: CGFloat) {
+        let drawAnimation = getDrawAnimation(duration: animationDuration)
+        var startAngle = CATransform3DMakeRotation(0, 0, 0, 1)
+        var endAngle = CATransform3DMakeRotation(rotateAngle, 0, 0, 1)
+        var caBasicAnimationList: [CABasicAnimation] = []
+        
+        if rotateAngle > CGFloat.pi/2 {
+            let rotateTimes = Int((rotateAngle/(CGFloat.pi/2)).rounded(.down))
+            let duration = animationDuration/Double(rotateTimes+1)
+            
+            for time in 0..<rotateTimes+1 {
+                let additionalAngle = (CGFloat.pi/2)*CGFloat(time)
+                let beginTime = duration*Double(time)
+                
+                if time < rotateTimes {
+                    endAngle = CATransform3DMakeRotation(CGFloat.pi/2 + additionalAngle, 0, 0, 1)
+                } else {
+                    endAngle = CATransform3DMakeRotation(rotateAngle, 0, 0, 1)
+                }
+                
+                let rotateAnimation = getRotateAnimation(from: startAngle, to: endAngle, beginTime: beginTime, duration: duration)
+                caBasicAnimationList.append(rotateAnimation)
+                startAngle = endAngle
+            }
+            
+            let groupAnimation = getGroupAnimation(duration: animationDuration, caBasicAnimationList: caBasicAnimationList)
+            
+            caShapeLayer.add(anim: groupAnimation, forKey: nil) {
+                caShapeLayer.add(anim: drawAnimation, forKey: nil)
+            }
+        } else {
+            let rotateAnimation = getRotateAnimation(from: startAngle, to: endAngle, duration: animationDuration)
+            
+            caShapeLayer.add(anim: rotateAnimation, forKey: nil) {
+                caShapeLayer.add(anim: drawAnimation, forKey: nil)
+            }
+        }
+    }
+    
     private func getAngle(x: CGFloat, y: CGFloat, centerX: CGFloat, centerY: CGFloat) -> CGFloat {
         let dx = x - centerX
         // Minus to correct for coord re-mapping
@@ -343,78 +402,6 @@ class CircularProgressMeter: UIView {
         return CGFloat(inRads)
     }
     
-    private func getRotateAnimation(from fromCaTransform3D: CATransform3D,to toCaTransform3D: CATransform3D, beginTime: CFTimeInterval = 0, duration: CFTimeInterval) -> CABasicAnimation {
-         let animation = CABasicAnimation(keyPath: "transform")
-         animation.fromValue = fromCaTransform3D
-         animation.toValue = toCaTransform3D
-         animation.beginTime = beginTime
-         animation.duration = duration
-         animation.fillMode = CAMediaTimingFillMode.forwards
-         animation.isRemovedOnCompletion = false
-         
-         return animation
-     }
-     
-     private func getGroupAnimation(duration: CFTimeInterval, caBasicAnimationList: [CABasicAnimation]) -> CAAnimationGroup {
-         let groupAnimation = CAAnimationGroup()
-         groupAnimation.beginTime = 0
-         groupAnimation.duration = duration
-         groupAnimation.fillMode = CAMediaTimingFillMode.forwards
-         groupAnimation.isRemovedOnCompletion = false
-         groupAnimation.animations = caBasicAnimationList
-         
-         return groupAnimation
-     }
-     
-     private func getDrawAnimation(duration: CFTimeInterval) -> CABasicAnimation {
-         let animation = CABasicAnimation(keyPath: "strokeEnd")
-         animation.fromValue = 0
-         animation.toValue = 1
-         animation.duration = duration
-         animation.fillMode = CAMediaTimingFillMode.forwards
-         animation.isRemovedOnCompletion = false
-         
-         return animation
-     }
-     
-     private func rotateAndDraw(caShapeLayer: CAShapeLayer, rotateAngle: CGFloat) {
-         var startAngle = CATransform3DMakeRotation(0, 0, 0, 1)
-         var endAngle = CATransform3DMakeRotation(rotateAngle, 0, 0, 1)
-         let drawAnimation = getDrawAnimation(duration: 3)
-         
-         var caBasicAnimationList: [CABasicAnimation] = []
-         
-         if rotateAngle > CGFloat.pi/2 {
-             let rotateTimes = Int((rotateAngle/(CGFloat.pi/2)).rounded(.down))
-             
-             for time in 0..<rotateTimes+1 {
-                 let additionalAngle = CGFloat.pi/2*CGFloat(time)
-                 let duration = 0.5
-                 let beginTime = duration*Double(time)
-                 if time < rotateTimes {
-                     endAngle = CATransform3DMakeRotation(CGFloat.pi/2 + additionalAngle, 0, 0, 1)
-                 } else {
-                     endAngle = CATransform3DMakeRotation(rotateAngle, 0, 0, 1)
-                 }
-                 let rotateAnimation = getRotateAnimation(from: startAngle, to: endAngle, beginTime: beginTime, duration: duration)
-                 caBasicAnimationList.append(rotateAnimation)
-                 startAngle = endAngle
-             }
-             
-             let groupAnimation = getGroupAnimation(duration: 1.5, caBasicAnimationList: caBasicAnimationList)
-
-             caShapeLayer.add(anim: groupAnimation, forKey: nil) {
-                 caShapeLayer.add(anim: drawAnimation, forKey: nil)
-             }
-         } else {
-             let rotateAnimation = getRotateAnimation(from: startAngle, to: endAngle, duration: 1.5)
-
-             caShapeLayer.add(anim: rotateAnimation, forKey: nil) {
-                 caShapeLayer.add(anim: drawAnimation, forKey: nil)
-             }
-         }
-     }
-    
 }
 
 extension CAShapeLayer {
@@ -423,39 +410,6 @@ extension CAShapeLayer {
         UIView.animate(withDuration: 0, animations: { self.add(anim, forKey: forKey) }) { _ in
             completion()
         }
-    }
-    
-    func addRotateAnimation(caTransform3D: CATransform3D, duration: CFTimeInterval, completion: @escaping () -> () = {}) {
-        let animation = CABasicAnimation(keyPath: "transform")
-        // animation.fromValue = CATransform3DMakeRotation(CGFloat.pi, 0, 0, 1)
-        animation.toValue = caTransform3D
-        animation.fillMode = CAMediaTimingFillMode.forwards
-        animation.isRemovedOnCompletion = false
-        animation.duration = duration
-        self.add(anim: animation, forKey: "transform") {
-            completion()
-        }
-    }
-    
-    func addRotateAnimation2(from fromCaTransform3D: CATransform3D,to toCaTransform3D: CATransform3D, duration: CFTimeInterval, completion: @escaping () -> () = {}) {
-        let animation = CABasicAnimation(keyPath: "transform")
-        animation.fromValue = fromCaTransform3D
-        animation.toValue = toCaTransform3D
-        animation.fillMode = CAMediaTimingFillMode.forwards
-        animation.isRemovedOnCompletion = false
-        animation.duration = duration
-        self.add(anim: animation, forKey: "transform") {
-            completion()
-        }
-    }
-    
-    func addDrawAnimation(duration: CFTimeInterval) {
-        self.strokeEnd = 1
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = 0
-        animation.toValue = 1
-        animation.duration = duration
-        self.add(animation, forKey: "strokeEnd")
     }
     
 }
