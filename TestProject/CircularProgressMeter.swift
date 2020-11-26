@@ -43,7 +43,10 @@ class CircularProgressMeter: UIView {
     var progressArray: [Double] = [] {
         didSet {
             numberOfItems = progressArray.count
-            availableRadians = availableRadians - spaceBetweenLine*Double(numberOfItems)
+            
+            if numberOfItems > 1 {
+                availableRadians = availableRadians - spaceBetweenLine*Double(numberOfItems)
+            }
             
             progress1 = progressArray.count > 0 ? progressArray[0] : 0.0
             progress2 = progressArray.count > 1 ? progressArray[1] : 0.0
@@ -110,68 +113,12 @@ class CircularProgressMeter: UIView {
         addSubview(progressValueLabel4)
         addSubview(progressValueLabel5)
         
-        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: radius,
-            startAngle: CGFloat.pi*3/2,
-            endAngle: CGFloat.pi*3/2 + CGFloat(Double.pi*2),
-            clockwise: true)
-        
-        self.layer.addSublayer(backFillCircle)
-        backFillCircle.strokeColor     = UIColor.lightGray.cgColor
-        backFillCircle.lineWidth       = 10
-        backFillCircle.lineCap         = CAShapeLayerLineCap.round
-        backFillCircle.fillColor       = nil
-        backFillCircle.path            = nil
-        backFillCircle.bounds = path.cgPath.boundingBox
-        backFillCircle.position = CGPoint(x: self.layer.bounds.midX, y: self.layer.bounds.midY)
-        
-        self.layer.addSublayer(circleShape1)
-        circleShape1.strokeColor     = UIColor.red.cgColor
-        circleShape1.lineWidth       = 10
-        circleShape1.lineCap         = CAShapeLayerLineCap.round
-        circleShape1.fillColor       = nil
-        circleShape1.path            = nil
-        circleShape1.bounds = path.cgPath.boundingBox
-        circleShape1.position = CGPoint(x: self.layer.bounds.midX, y: self.layer.bounds.midY)
-        
-        self.layer.addSublayer(circleShape2)
-        circleShape2.strokeColor     = UIColor.green.cgColor
-        circleShape2.lineWidth       = 10
-        circleShape2.lineCap         = CAShapeLayerLineCap.round
-        circleShape2.fillColor       = nil
-        circleShape2.path            = nil
-        circleShape2.bounds = path.cgPath.boundingBox
-        circleShape2.position = CGPoint(x: self.layer.bounds.midX, y: self.layer.bounds.midY)
-        
-        self.layer.addSublayer(circleShape3)
-        circleShape3.strokeColor     = UIColor.blue.cgColor
-        circleShape3.lineWidth       = 10
-        circleShape3.lineCap         = CAShapeLayerLineCap.round
-        circleShape3.fillColor       = nil
-        circleShape3.path            = nil
-        circleShape3.bounds = path.cgPath.boundingBox
-        circleShape3.position = CGPoint(x: self.layer.bounds.midX, y: self.layer.bounds.midY)
-        
-        self.layer.addSublayer(circleShape4)
-        circleShape4.strokeColor     = UIColor.orange.cgColor
-        circleShape4.lineWidth       = 10
-        circleShape4.lineCap         = CAShapeLayerLineCap.round
-        circleShape4.fillColor       = nil
-        circleShape4.path            = nil
-        circleShape4.bounds = path.cgPath.boundingBox
-        circleShape4.position = CGPoint(x: self.layer.bounds.midX, y: self.layer.bounds.midY)
-        
-        self.layer.addSublayer(circleShape5)
-        circleShape5.strokeColor     = UIColor.yellow.cgColor
-        circleShape5.lineWidth       = 10
-        circleShape5.lineCap         = CAShapeLayerLineCap.round
-        circleShape5.fillColor       = nil
-        circleShape5.path            = nil
-        circleShape5.bounds = path.cgPath.boundingBox
-        circleShape5.position = CGPoint(x: self.layer.bounds.midX, y: self.layer.bounds.midY)
+        addSublayer(caShapeLayer: backFillCircle, uiColor: UIColor.lightGray)
+        addSublayer(caShapeLayer: circleShape1, uiColor: UIColor.red)
+        addSublayer(caShapeLayer: circleShape2, uiColor: UIColor.green)
+        addSublayer(caShapeLayer: circleShape3, uiColor: UIColor.blue)
+        addSublayer(caShapeLayer: circleShape4, uiColor: UIColor.orange)
+        addSublayer(caShapeLayer: circleShape5, uiColor: UIColor.yellow)
     }
     
     override func layoutSubviews() {
@@ -213,6 +160,10 @@ class CircularProgressMeter: UIView {
             width: labelSize.width,
             height: labelSize.height)
         
+        addPath(to: backFillCircle, startAngle: CGFloat.pi*3/2, availableRadians: Double.pi*2, progress: 1)
+    }
+    
+    private func addSublayer(caShapeLayer: CAShapeLayer, uiColor: UIColor, lineWidth: CGFloat = 10) {
         let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
         let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
         let path = UIBezierPath(
@@ -221,21 +172,34 @@ class CircularProgressMeter: UIView {
             startAngle: CGFloat.pi*3/2,
             endAngle: CGFloat.pi*3/2 + CGFloat(Double.pi*2),
             clockwise: true)
-        backFillCircle.path = path.cgPath
+        
+        self.layer.addSublayer(caShapeLayer)
+        caShapeLayer.strokeColor     = uiColor.cgColor
+        caShapeLayer.lineWidth       = 10
+        caShapeLayer.lineCap         = CAShapeLayerLineCap.round
+        caShapeLayer.fillColor       = nil
+        caShapeLayer.path            = nil
+        caShapeLayer.bounds = path.cgPath.boundingBox
+        caShapeLayer.position = CGPoint(x: self.layer.bounds.midX, y: self.layer.bounds.midY)
     }
     
-    func redraw1() {
+    private func addPath(to caShapeLayer: CAShapeLayer, startAngle: CGFloat, availableRadians: Double, progress: Double ) {
         let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
         let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
         let path = UIBezierPath(
             arcCenter: center,
             radius: radius,
-            startAngle: CGFloat.pi*3/2,
-            endAngle: CGFloat.pi*3/2 + CGFloat(availableRadians*progress1),
+            startAngle: startAngle,
+            endAngle: startAngle + CGFloat(availableRadians*progress),
             clockwise: true)
+        caShapeLayer.path = path.cgPath
+    }
+    
+    func redraw1() {
+        addPath(to: circleShape1, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress1)
+        
         let caTransform3D = CATransform3DMakeRotation(0, 0, 0, 1)
         
-        circleShape1.path = path.cgPath
         circleShape1.addRotateAnimation(caTransform3D: caTransform3D, duration: 1.5) {
             self.circleShape1.addDrawAnimation(duration: 3)
         }
@@ -245,17 +209,10 @@ class CircularProgressMeter: UIView {
     }
     
     func redraw2() {
-        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: radius,
-            startAngle: CGFloat.pi*3/2,
-            endAngle: CGFloat.pi*3/2 + CGFloat(availableRadians*progress2),
-            clockwise: true)
+        addPath(to: circleShape2, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress2)
+        
         let caTransform3D = CATransform3DMakeRotation(CGFloat(self.availableRadians*self.progress1+self.spaceBetweenLine), 0, 0, 1)
         
-        circleShape2.path = path.cgPath
         circleShape2.addRotateAnimation(caTransform3D: caTransform3D, duration: 1.5) {
             self.circleShape2.addDrawAnimation(duration: 3)
         }
@@ -265,20 +222,13 @@ class CircularProgressMeter: UIView {
     }
     
     func redraw3() {
-        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: radius,
-            startAngle: CGFloat.pi*3/2,
-            endAngle: CGFloat.pi*3/2 + CGFloat(availableRadians*progress3),
-            clockwise: true)
+        addPath(to: circleShape3, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress3)
+        
         let caTransform3D = CATransform3DMakeRotation(CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
                 (availableRadians*progress2+spaceBetweenLine)
         ), 0, 0, 1)
         
-        circleShape3.path = path.cgPath
         circleShape3.addRotateAnimation(caTransform3D: caTransform3D, duration: 1.5) {
             self.circleShape3.addDrawAnimation(duration: 3)
         }
@@ -291,21 +241,14 @@ class CircularProgressMeter: UIView {
     }
     
     func redraw4() {
-        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: radius,
-            startAngle: CGFloat.pi*3/2,
-            endAngle: CGFloat.pi*3/2 + CGFloat(availableRadians*progress4),
-            clockwise: true)
+        addPath(to: circleShape4, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress4)
+
         let caTransform3D = CATransform3DMakeRotation(CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
                 (availableRadians*progress2+spaceBetweenLine) +
                 (availableRadians*progress3+spaceBetweenLine)
         ), 0, 0, 1)
         
-        circleShape4.path = path.cgPath
         circleShape4.addRotateAnimation(caTransform3D: caTransform3D, duration: 1.5) {
             self.circleShape4.addDrawAnimation(duration: 3)
         }
@@ -319,36 +262,30 @@ class CircularProgressMeter: UIView {
     }
     
     func redraw5() {
-        circleShape5.isHidden = true
+        addPath(to: circleShape5, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress5)
         
-        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: radius,
-            startAngle: CGFloat.pi*3/2,
-            endAngle: CGFloat.pi*3/2 + CGFloat(availableRadians*progress5),
-            clockwise: true)
         let rotateAngle = CGFloat((availableRadians*progress1+spaceBetweenLine) +
             (availableRadians*progress2+spaceBetweenLine) +
             (availableRadians*progress3+spaceBetweenLine) +
             (availableRadians*progress4+spaceBetweenLine)
         )
+        
         let caTransform3D = CATransform3DMakeRotation(rotateAngle, 0, 0, 1)
         
-        if rotateAngle > CGFloat.pi {
+        if rotateAngle > CGFloat.pi/2 {
             let caTransform3DPi_2 = CATransform3DMakeRotation(CGFloat.pi/2, 0, 0, 1)
             circleShape5.addRotateAnimation(caTransform3D: caTransform3DPi_2, duration: 0.75) {
+                self.circleShape5.addDrawAnimation(duration: 3)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.75*3.5/4) {
                     self.circleShape5.addRotateAnimation2(from: caTransform3DPi_2, to: caTransform3D, duration: 0.75) {
-                        self.circleShape5.isHidden = false
-                        self.circleShape5.addDrawAnimation(duration: 3)
                     }
                 }
             }
+        } else {
+            circleShape5.addRotateAnimation(caTransform3D: caTransform3D, duration: 1.5) {
+                self.circleShape5.addDrawAnimation(duration: 3)
+            }
         }
-        
-        circleShape5.path = path.cgPath
         
         startAngle5 = CGFloat.pi*3/2 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
@@ -434,6 +371,7 @@ extension CAShapeLayer {
     
     func addRotateAnimation(caTransform3D: CATransform3D, duration: CFTimeInterval, completion: @escaping () -> () = {}) {
         let animation = CABasicAnimation(keyPath: "transform")
+        // animation.fromValue = CATransform3DMakeRotation(CGFloat.pi, 0, 0, 1)
         animation.toValue = caTransform3D
         animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = false
