@@ -14,8 +14,8 @@
             filePath = "TestProject/CircularProgressMeter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "redraw4()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "TestProject/CircularProgressMeter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
+            startingLineNumber = "440"
+            endingLineNumber = "440"
             landmarkName = "rotateAndDraw(caShapeLayer:rotateAngle:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -39,17 +39,94 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6E714709-9C40-4502-82F2-83D28BB48146"
+            uuid = "847567EA-1472-4886-A1EB-ECCB911407B4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestProject/CircularProgressMeter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
-            landmarkName = "touchesBegan(_:with:)"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "redraw1()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "847567EA-1472-4886-A1EB-ECCB911407B4 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "683">
+               </Location>
+               <Location
+                  uuid = "847567EA-1472-4886-A1EB-ECCB911407B4 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "841">
+               </Location>
+               <Location
+                  uuid = "847567EA-1472-4886-A1EB-ECCB911407B4 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "1417">
+               </Location>
+               <Location
+                  uuid = "847567EA-1472-4886-A1EB-ECCB911407B4 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "2151">
+               </Location>
+               <Location
+                  uuid = "847567EA-1472-4886-A1EB-ECCB911407B4 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "3037">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
