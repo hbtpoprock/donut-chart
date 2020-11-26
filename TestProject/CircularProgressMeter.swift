@@ -295,15 +295,7 @@ class CircularProgressMeter: UIView {
         return animation
     }
     
-    func redraw5() {
-        addPath(to: circleShape5, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress5)
-        
-        let rotateAngle = CGFloat((availableRadians*progress1+spaceBetweenLine) +
-            (availableRadians*progress2+spaceBetweenLine) +
-            (availableRadians*progress3+spaceBetweenLine) +
-            (availableRadians*progress4+spaceBetweenLine)
-        )
-        
+    private func rotateAndDraw(caShapeLayer: CAShapeLayer, rotateAngle: CGFloat) {
         var startAngle = CATransform3DMakeRotation(0, 0, 0, 1)
         var endAngle = CATransform3DMakeRotation(rotateAngle, 0, 0, 1)
         let drawAnimation = getDrawAnimation(duration: 3)
@@ -329,16 +321,28 @@ class CircularProgressMeter: UIView {
             
             let groupAnimation = getGroupAnimation(duration: 1.5, caBasicAnimationList: caBasicAnimationList)
 
-            circleShape5.add(anim: groupAnimation, forKey: nil) {
-                self.circleShape5.add(anim: drawAnimation, forKey: nil)
+            caShapeLayer.add(anim: groupAnimation, forKey: nil) {
+                caShapeLayer.add(anim: drawAnimation, forKey: nil)
             }
         } else {
             let rotateAnimation = getRotateAnimation(from: startAngle, to: endAngle, duration: 1.5)
 
-            circleShape5.add(anim: rotateAnimation, forKey: nil) {
-                self.circleShape5.add(anim: drawAnimation, forKey: nil)
+            caShapeLayer.add(anim: rotateAnimation, forKey: nil) {
+                caShapeLayer.add(anim: drawAnimation, forKey: nil)
             }
         }
+    }
+    
+    func redraw5() {
+        addPath(to: circleShape5, startAngle: CGFloat.pi*3/2, availableRadians: availableRadians, progress: progress5)
+        
+        let rotateAngle = CGFloat((availableRadians*progress1+spaceBetweenLine) +
+            (availableRadians*progress2+spaceBetweenLine) +
+            (availableRadians*progress3+spaceBetweenLine) +
+            (availableRadians*progress4+spaceBetweenLine)
+        )
+        
+        rotateAndDraw(caShapeLayer: circleShape5, rotateAngle: rotateAngle)
         
         startAngle5 = CGFloat.pi*3/2 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
