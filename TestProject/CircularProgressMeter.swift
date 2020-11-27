@@ -243,7 +243,18 @@ class CircularProgressMeter: UIView {
             
             startAngle1_4 = CGFloat.pi
             endAngle1_4 = endAngle1! - CGFloat.pi*2
+        case CGFloat.pi*3.5:
+            startAngle1_1 = CGFloat.pi*1.5
+            endAngle1_1 = CGFloat.pi*2
             
+            startAngle1_2 = 0
+            endAngle1_2 = CGFloat.pi*0.5
+            
+            startAngle1_3 = CGFloat.pi*0.5
+            endAngle1_3 = CGFloat.pi
+            
+            startAngle1_4 = CGFloat.pi
+            endAngle1_4 = endAngle1! - CGFloat.pi*2
         default:
             print("This is impossible")
         }

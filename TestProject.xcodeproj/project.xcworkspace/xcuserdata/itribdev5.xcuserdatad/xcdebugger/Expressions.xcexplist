@@ -6,10 +6,18 @@
          contextName = "CircularProgressMeter.redraw2():CircularProgressMeter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "endAngle2">
+               value = "startAngle2">
             </PersistentString>
             <PersistentString
-               value = "startAngle2">
+               value = "endAngle2">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CircularProgressMeter.redraw1():CircularProgressMeter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "endAngle1_4">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -17,7 +25,7 @@
          contextName = "CircularProgressMeter.touchesBegan(_:with:):CircularProgressMeter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "abs(dist - circleRadius) &lt;= maxDiff">
+               value = "endAngle1">
             </PersistentString>
             <PersistentString
                value = "startAngle1">
@@ -26,7 +34,7 @@
                value = "topBoundingRect.contains(CGPoint(x: point.x, y: point.y))">
             </PersistentString>
             <PersistentString
-               value = "endAngle1">
+               value = "abs(dist - circleRadius) &lt;= maxDiff">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

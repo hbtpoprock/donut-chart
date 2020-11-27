@@ -7,39 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CA2B59A0-D950-40E2-8E2D-234E4D8D074A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TestProject/CircularProgressMeter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
-            landmarkName = "redraw4()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CDCDD6F7-0282-4CD9-9BE1-477B7355E0F5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TestProject/CircularProgressMeter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "440"
-            endingLineNumber = "440"
-            landmarkName = "rotateAndDraw(caShapeLayer:rotateAngle:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "847567EA-1472-4886-A1EB-ECCB911407B4"
+            uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -52,7 +20,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "847567EA-1472-4886-A1EB-ECCB911407B4 - de6df44462b183dd"
+                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -67,7 +35,7 @@
                   offsetFromSymbolStart = "683">
                </Location>
                <Location
-                  uuid = "847567EA-1472-4886-A1EB-ECCB911407B4 - de6df44462b183dd"
+                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -82,7 +50,7 @@
                   offsetFromSymbolStart = "841">
                </Location>
                <Location
-                  uuid = "847567EA-1472-4886-A1EB-ECCB911407B4 - de6df44462b183dd"
+                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -97,7 +65,7 @@
                   offsetFromSymbolStart = "1417">
                </Location>
                <Location
-                  uuid = "847567EA-1472-4886-A1EB-ECCB911407B4 - de6df44462b183dd"
+                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -112,7 +80,7 @@
                   offsetFromSymbolStart = "2151">
                </Location>
                <Location
-                  uuid = "847567EA-1472-4886-A1EB-ECCB911407B4 - de6df44462b183dd"
+                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -125,6 +93,21 @@
                   startingLineNumber = "212"
                   endingLineNumber = "212"
                   offsetFromSymbolStart = "3037">
+               </Location>
+               <Location
+                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "4015">
                </Location>
             </Locations>
          </BreakpointContent>
