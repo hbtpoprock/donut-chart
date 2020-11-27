@@ -14,14 +14,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CircularProgressMeter.redraw1():CircularProgressMeter.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "endAngle1_4">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "CircularProgressMeter.touchesBegan(_:with:):CircularProgressMeter.swift">
          <PersistentStrings>
             <PersistentString
@@ -34,7 +26,53 @@
                value = "topBoundingRect.contains(CGPoint(x: point.x, y: point.y))">
             </PersistentString>
             <PersistentString
+               value = "startAngle1_2">
+            </PersistentString>
+            <PersistentString
+               value = "pointAngle">
+            </PersistentString>
+            <PersistentString
                value = "abs(dist - circleRadius) &lt;= maxDiff">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CircularProgressMeter.progressArray.didset:CircularProgressMeter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "availableRadians">
+            </PersistentString>
+            <PersistentString
+               value = "numberOfItems">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CircularProgressMeter.redraw1():CircularProgressMeter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "endAngle1_3">
+            </PersistentString>
+            <PersistentString
+               value = "startAngle1_3">
+            </PersistentString>
+            <PersistentString
+               value = "startAngle1_4">
+            </PersistentString>
+            <PersistentString
+               value = "endAngle1_2">
+            </PersistentString>
+            <PersistentString
+               value = "endAngle1_4">
+            </PersistentString>
+            <PersistentString
+               value = "startAngle1_1">
+            </PersistentString>
+            <PersistentString
+               value = "endAngle1_1">
+            </PersistentString>
+            <PersistentString
+               value = "startAngle1_2">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

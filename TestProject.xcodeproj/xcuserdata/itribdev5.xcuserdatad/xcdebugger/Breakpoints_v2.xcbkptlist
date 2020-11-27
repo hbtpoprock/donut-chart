@@ -7,20 +7,20 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86"
+            uuid = "555533AC-09EB-478B-B97E-F46BCBAB9EC8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestProject/CircularProgressMeter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "redraw1()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
+                  uuid = "555533AC-09EB-478B-B97E-F46BCBAB9EC8 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -30,12 +30,12 @@
                   urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "212"
-                  endingLineNumber = "212"
-                  offsetFromSymbolStart = "683">
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "810">
                </Location>
                <Location
-                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
+                  uuid = "555533AC-09EB-478B-B97E-F46BCBAB9EC8 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -45,12 +45,12 @@
                   urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "212"
-                  endingLineNumber = "212"
-                  offsetFromSymbolStart = "841">
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "968">
                </Location>
                <Location
-                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
+                  uuid = "555533AC-09EB-478B-B97E-F46BCBAB9EC8 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -60,12 +60,12 @@
                   urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "212"
-                  endingLineNumber = "212"
-                  offsetFromSymbolStart = "1417">
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "1620">
                </Location>
                <Location
-                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
+                  uuid = "555533AC-09EB-478B-B97E-F46BCBAB9EC8 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -75,12 +75,12 @@
                   urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "212"
-                  endingLineNumber = "212"
-                  offsetFromSymbolStart = "2151">
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "2257">
                </Location>
                <Location
-                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
+                  uuid = "555533AC-09EB-478B-B97E-F46BCBAB9EC8 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -90,12 +90,12 @@
                   urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "212"
-                  endingLineNumber = "212"
-                  offsetFromSymbolStart = "3037">
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "2969">
                </Location>
                <Location
-                  uuid = "C255A8D2-B223-4358-BEBD-6B58CC7F2C86 - de6df44462b183dd"
+                  uuid = "555533AC-09EB-478B-B97E-F46BCBAB9EC8 - de6df44462b183dd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -105,11 +105,135 @@
                   urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "212"
-                  endingLineNumber = "212"
-                  offsetFromSymbolStart = "4015">
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "3720">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3FA2472-CB03-49DB-BE50-6817E0E01697"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestProject/CircularProgressMeter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
+            landmarkName = "redraw1()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B3FA2472-CB03-49DB-BE50-6817E0E01697 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "4171">
+               </Location>
+               <Location
+                  uuid = "B3FA2472-CB03-49DB-BE50-6817E0E01697 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "4337">
+               </Location>
+               <Location
+                  uuid = "B3FA2472-CB03-49DB-BE50-6817E0E01697 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "4914">
+               </Location>
+               <Location
+                  uuid = "B3FA2472-CB03-49DB-BE50-6817E0E01697 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "5804">
+               </Location>
+               <Location
+                  uuid = "B3FA2472-CB03-49DB-BE50-6817E0E01697 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "6774">
+               </Location>
+               <Location
+                  uuid = "B3FA2472-CB03-49DB-BE50-6817E0E01697 - de6df44462b183dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestProject.CircularProgressMeter.redraw1() -&gt; ()"
+                  moduleName = "TestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/itribdev5/Documents/workspace/TestProject/TestProject/CircularProgressMeter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "7790">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68C6FB51-38C2-4B37-A08C-F468F6627E8C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestProject/CircularProgressMeter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "552"
+            endingLineNumber = "552"
+            landmarkName = "performActionWhenTouch(circleShapeAngles:pointAngle:action:str:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

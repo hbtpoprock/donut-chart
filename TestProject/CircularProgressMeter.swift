@@ -36,6 +36,8 @@ class CircularProgressMeter: UIView {
     var startAngle1_4: CGFloat?
     var endAngle1_4: CGFloat?
     
+    var startAngle2: CGFloat?
+    var endAngle2: CGFloat?
     var startAngle2_1: CGFloat?
     var endAngle2_1: CGFloat?
     var startAngle2_2: CGFloat?
@@ -45,6 +47,8 @@ class CircularProgressMeter: UIView {
     var startAngle2_4: CGFloat?
     var endAngle2_4: CGFloat?
     
+    var startAngle3: CGFloat?
+    var endAngle3: CGFloat?
     var startAngle3_1: CGFloat?
     var endAngle3_1: CGFloat?
     var startAngle3_2: CGFloat?
@@ -54,6 +58,8 @@ class CircularProgressMeter: UIView {
     var startAngle3_4: CGFloat?
     var endAngle3_4: CGFloat?
     
+    var startAngle4: CGFloat?
+    var endAngle4: CGFloat?
     var startAngle4_1: CGFloat?
     var endAngle4_1: CGFloat?
     var startAngle4_2: CGFloat?
@@ -63,6 +69,8 @@ class CircularProgressMeter: UIView {
     var startAngle4_4: CGFloat?
     var endAngle4_4: CGFloat?
     
+    var startAngle5: CGFloat?
+    var endAngle5: CGFloat?
     var startAngle5_1: CGFloat?
     var endAngle5_1: CGFloat?
     var startAngle5_2: CGFloat?
@@ -85,11 +93,25 @@ class CircularProgressMeter: UIView {
                 availableRadians = availableRadians - spaceBetweenLine*Double(numberOfItems)
             }
             
-            progress1 = progressArray.count > 0 ? progressArray[0] : 0.0
-            progress2 = progressArray.count > 1 ? progressArray[1] : 0.0
-            progress3 = progressArray.count > 2 ? progressArray[2] : 0.0
-            progress4 = progressArray.count > 3 ? progressArray[3] : 0.0
-            progress5 = progressArray.count > 4 ? progressArray[4] : 0.0
+            if progressArray.count > 0 {
+                progress1 =  progressArray[0]
+            }
+            
+            if progressArray.count > 1 {
+                progress2 =  progressArray[1]
+            }
+            
+            if progressArray.count > 2 {
+                progress3 =  progressArray[2]
+            }
+            
+            if progressArray.count > 3 {
+                progress4 =  progressArray[3]
+            }
+            
+            if progressArray.count > 4 {
+                progress5 =  progressArray[4]
+            }
         }
     }
     
@@ -209,52 +231,90 @@ class CircularProgressMeter: UIView {
         startAngle1 = CGFloat.pi*1.5
         endAngle1 = startAngle1! + CGFloat(availableRadians*progress1)
         
-        switch endAngle1! {
+        switch startAngle1! {
         case CGFloat.pi*1.5..<CGFloat.pi*2:
-            startAngle1_1 = CGFloat.pi*1.5
-            endAngle1_1 = endAngle1
+            startAngle1_1 = startAngle1!
             
         case CGFloat.pi*2..<CGFloat.pi*2.5:
-            startAngle1_1 = CGFloat.pi*1.5
-            endAngle1_1 = CGFloat.pi*2
+            startAngle1_1 = nil
             
-            startAngle1_2 = 0
+            startAngle1_2 = startAngle1! - CGFloat.pi*2
+            
+        case CGFloat.pi*2.5..<CGFloat.pi*3:
+            startAngle1_1 = nil
+            
+            startAngle1_2 = nil
+            
+            startAngle1_3 = startAngle1! - CGFloat.pi*2
+            
+        case CGFloat.pi*3..<CGFloat.pi*3.5:
+            startAngle1_1 = nil
+            
+            startAngle1_2 = nil
+            
+            startAngle1_3 = nil
+            
+            startAngle1_4 = startAngle1! - CGFloat.pi*2
+        case CGFloat.pi*3.5:
+            startAngle1_1 = nil
+            
+            startAngle1_2 = nil
+            
+            startAngle1_3 = nil
+            
+            startAngle1_4 = CGFloat.pi*1.5
+        default:
+            print("This is impossible")
+        }
+        
+        switch endAngle1! {
+        case CGFloat.pi*1.5..<CGFloat.pi*2:
+            endAngle1_1 = endAngle1!
+            
+        case CGFloat.pi*2..<CGFloat.pi*2.5:
+            if let startAngle1_1 = startAngle1_1, startAngle1_1 >= CGFloat.pi*1.5 && startAngle1_1 < CGFloat.pi*2 {
+                startAngle1_2 = 0
+            }
+            
+            endAngle1_1 = 0
+            
             endAngle1_2 = endAngle1! - CGFloat.pi*2
             
         case CGFloat.pi*2.5..<CGFloat.pi*3:
-            startAngle1_1 = CGFloat.pi*1.5
-            endAngle1_1 = CGFloat.pi*2
+            if let startAngle1_1 = startAngle1_1, startAngle1_1 >= CGFloat.pi*1.5 && startAngle1_1 < CGFloat.pi*2 {
+                startAngle1_2 = 0
+            }
             
-            startAngle1_2 = 0
+            endAngle1_1 = 0
+            
             endAngle1_2 = CGFloat.pi*0.5
             
-            startAngle1_3 = CGFloat.pi*0.5
             endAngle1_3 = endAngle1! - CGFloat.pi*2
             
         case CGFloat.pi*3..<CGFloat.pi*3.5:
-            startAngle1_1 = CGFloat.pi*1.5
-            endAngle1_1 = CGFloat.pi*2
+            if let startAngle1_1 = startAngle1_1, startAngle1_1 >= CGFloat.pi*1.5 && startAngle1_1 < CGFloat.pi*2 {
+                startAngle1_2 = 0
+            }
             
-            startAngle1_2 = 0
+            endAngle1_1 = 0
+            
             endAngle1_2 = CGFloat.pi*0.5
             
-            startAngle1_3 = CGFloat.pi*0.5
             endAngle1_3 = CGFloat.pi
             
-            startAngle1_4 = CGFloat.pi
             endAngle1_4 = endAngle1! - CGFloat.pi*2
         case CGFloat.pi*3.5:
-            startAngle1_1 = CGFloat.pi*1.5
-            endAngle1_1 = CGFloat.pi*2
+            if let startAngle1_1 = startAngle1_1, startAngle1_1 >= CGFloat.pi*1.5 && startAngle1_1 < CGFloat.pi*2 {
+                startAngle1_2 = 0
+            }
             
-            startAngle1_2 = 0
+            endAngle1_1 = 0
+            
             endAngle1_2 = CGFloat.pi*0.5
             
-            startAngle1_3 = CGFloat.pi*0.5
             endAngle1_3 = CGFloat.pi
             
-            startAngle1_4 = CGFloat.pi
-            endAngle1_4 = endAngle1! - CGFloat.pi*2
+            endAngle1_4 = CGFloat.pi*1.5
         default:
             print("This is impossible")
         }
@@ -266,8 +326,8 @@ class CircularProgressMeter: UIView {
         
         addPath(to: circleShape2, availableRadians: availableRadians, progress: progress2)
         
-        startAngle2_1 = CGFloat.pi*3/2 + CGFloat(availableRadians*progress1+spaceBetweenLine)
-        endAngle2_1 = startAngle2_1! + CGFloat(availableRadians*progress2)
+        startAngle2 = CGFloat.pi*1.5 + CGFloat(availableRadians*progress1+spaceBetweenLine)
+        endAngle2 = startAngle2! + CGFloat(availableRadians*progress2)
     }
     
     func redraw3() {
@@ -278,11 +338,11 @@ class CircularProgressMeter: UIView {
         
         addPath(to: circleShape3, availableRadians: availableRadians, progress: progress3)
         
-        startAngle3_1 = CGFloat.pi*3/2 + CGFloat(
+        startAngle3 = CGFloat.pi*1.5 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
                 (availableRadians*progress2+spaceBetweenLine)
         )
-        endAngle3_1 = startAngle3_1! + CGFloat(availableRadians*progress3)
+        endAngle3 = startAngle3! + CGFloat(availableRadians*progress3)
     }
     
     func redraw4() {
@@ -294,12 +354,12 @@ class CircularProgressMeter: UIView {
         
         addPath(to: circleShape4, availableRadians: availableRadians, progress: progress4)
         
-        startAngle4_1 = CGFloat.pi*3/2 + CGFloat(
+        startAngle4 = CGFloat.pi*1.5 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
                 (availableRadians*progress2+spaceBetweenLine) +
                 (availableRadians*progress3+spaceBetweenLine)
         )
-        endAngle4_1 = startAngle4_1! + CGFloat(availableRadians*progress4)
+        endAngle4 = startAngle4! + CGFloat(availableRadians*progress4)
     }
     
     func redraw5() {
@@ -312,13 +372,17 @@ class CircularProgressMeter: UIView {
         
         addPath(to: circleShape5, availableRadians: availableRadians, progress: progress5)
         
-        startAngle5_1 = CGFloat.pi*3/2 + CGFloat(
+        startAngle5 = CGFloat.pi*1.5 + CGFloat(
             (availableRadians*progress1+spaceBetweenLine) +
                 (availableRadians*progress2+spaceBetweenLine) +
                 (availableRadians*progress3+spaceBetweenLine) +
                 (availableRadians*progress4+spaceBetweenLine)
         )
-        endAngle5_1 = startAngle5_1! + CGFloat(availableRadians*progress5)
+        endAngle5 = startAngle5! + CGFloat(availableRadians*progress5)
+    }
+    
+    func myPrint(str: String) {
+        print(str)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -341,43 +405,237 @@ class CircularProgressMeter: UIView {
         if abs(dist - circleRadius) <= maxDiff && topBoundingRect.contains(CGPoint(x: point.x, y: point.y)) {
             let pointAngle = getAngle(x: point.x, y: point.y, centerX: circleCenterX, centerY: circleCenterY)
             
-            if var startAngle1_1 = startAngle1_1, var endAngle1_1 = endAngle1_1,
-                var startAngle2_1 = startAngle2_1, var endAngle2_1 = endAngle2_1,
-                var startAngle3_1 = startAngle3_1, var endAngle3_1 = endAngle3_1,
-                var startAngle4_1 = startAngle4_1, var endAngle4_1 = endAngle4_1,
-                var startAngle5_1 = startAngle5_1, var endAngle5_1 = endAngle5_1 {
-                startAngle1_1 = startAngle1_1 > CGFloat.pi*2 ? startAngle1_1 - CGFloat.pi*2 : startAngle1_1
-                endAngle1_1 = endAngle1_1 > CGFloat.pi*2 ? endAngle1_1 - CGFloat.pi*2 : endAngle1_1
-                
-                startAngle2_1 = startAngle2_1 > CGFloat.pi*2 ? startAngle2_1 - CGFloat.pi*2 : startAngle2_1
-                endAngle2_1 = endAngle2_1 > CGFloat.pi*2 ? endAngle2_1 - CGFloat.pi*2 : endAngle2_1
-                
-                startAngle3_1 = startAngle3_1 > CGFloat.pi*2 ? startAngle3_1 - CGFloat.pi*2 : startAngle3_1
-                endAngle3_1 = endAngle3_1 > CGFloat.pi*2 ? endAngle3_1 - CGFloat.pi*2 : endAngle3_1
-                
-                startAngle4_1 = startAngle4_1 > CGFloat.pi*2 ? startAngle4_1 - CGFloat.pi*2 : startAngle4_1
-                endAngle4_1 = endAngle4_1 > CGFloat.pi*2 ? endAngle4_1 - CGFloat.pi*2 : endAngle4_1
-                
-                startAngle5_1 = startAngle5_1 > CGFloat.pi*2 ? startAngle5_1 - CGFloat.pi*2 : startAngle5_1
-                endAngle5_1 = endAngle5_1 > CGFloat.pi*2 ? endAngle5_1 - CGFloat.pi*2 : endAngle5_1
-                
-                print("startAngle1: \(startAngle1_1)")
-                print("endAngle1: \(endAngle1_1)")
-                print("pointAngle: \(pointAngle)")
-                
-                if pointAngle >= startAngle1_1 && pointAngle <= endAngle1_1 {
-                    print("1")
-                } else if pointAngle >= startAngle2_1 && pointAngle <= endAngle2_1 {
-                    print("2")
-                } else if pointAngle >= startAngle3_1 && pointAngle <= endAngle3_1 {
-                    print("3")
-                } else if pointAngle >= startAngle4_1 && pointAngle <= endAngle4_1 {
-                    print("4")
-                } else if pointAngle >= startAngle5_1 && pointAngle <= endAngle5_1 {
-                    print("5")
-                }
+            print("pointAngle: \(pointAngle)")
+            
+            let circleShapeAngles1 = CircleShapeAngles(
+                s1: startAngle1_1,
+                e1: endAngle1_1,
+                s2: startAngle1_2,
+                e2: endAngle1_2,
+                s3: startAngle1_3,
+                e3: endAngle1_3,
+                s4: startAngle1_4,
+                e4: endAngle1_4
+            )
+            
+            performActionWhenTouch(circleShapeAngles: circleShapeAngles1, pointAngle: pointAngle, action: myPrint, str: "1")
+            
+//            // --------------------------- circleShape1 ---------------------------
+//            if let startAngle1_1 = startAngle1_1, pointAngle >= startAngle1_1 {
+//                if let endAngle1_1 = endAngle1_1, pointAngle <= endAngle1_1 {
+//                    print("1")
+//                    return
+//                }
+//
+//                if let endAngle1_2 = endAngle1_2, pointAngle <= endAngle1_2 {
+//                    print("1")
+//                    return
+//                }
+//
+//                if let endAngle1_3 = endAngle1_3, pointAngle <= endAngle1_3 {
+//                    print("1")
+//                    return
+//                }
+//
+//                if let endAngle1_4 = endAngle1_4, pointAngle <= endAngle1_4 {
+//                    print("1")
+//                    return
+//                }
+//            }
+//
+//            if let startAngle1_2 = startAngle1_2, pointAngle >= startAngle1_2 {
+//                if let endAngle1_1 = endAngle1_1, pointAngle <= endAngle1_1 {
+//                    print("1")
+//                    return
+//
+//                }
+//
+//                if let endAngle1_2 = endAngle1_2, pointAngle <= endAngle1_2 {
+//                    print("1")
+//                    return
+//                }
+//
+//                if let endAngle1_3 = endAngle1_3, pointAngle <= endAngle1_3 {
+//                    print("1")
+//                    return
+//                }
+//
+//                if let endAngle1_4 = endAngle1_4, pointAngle <= endAngle1_4 {
+//                    print("1")
+//                    return
+//                }
+//            }
+//
+//            if let startAngle1_3 = startAngle1_3, pointAngle >= startAngle1_3 {
+//                if let endAngle1_1 = endAngle1_1, pointAngle <= endAngle1_1 {
+//                    print("1")
+//                    return
+//
+//                }
+//
+//                if let endAngle1_2 = endAngle1_2, pointAngle <= endAngle1_2 {
+//                    print("1")
+//                    return
+//                }
+//
+//                if let endAngle1_3 = endAngle1_3, pointAngle <= endAngle1_3 {
+//                    print("1")
+//                    return
+//                }
+//
+//                if let endAngle1_4 = endAngle1_4, pointAngle <= endAngle1_4 {
+//                    print("1")
+//                    return
+//                }
+//            }
+//
+//            if let startAngle1_4 = startAngle1_4, pointAngle >= startAngle1_4 {
+//                if let endAngle1_1 = endAngle1_1, pointAngle <= endAngle1_1 {
+//                    print("1")
+//                    return
+//
+//                }
+//
+//                if let endAngle1_2 = endAngle1_2, pointAngle <= endAngle1_2 {
+//                    print("1")
+//                    return
+//                }
+//
+//                if let endAngle1_3 = endAngle1_3, pointAngle <= endAngle1_3 {
+//                    print("1")
+//                    return
+//                }
+//
+//                if let endAngle1_4 = endAngle1_4, pointAngle <= endAngle1_4 {
+//                    print("1")
+//                    return
+//                }
+//            }
+            // --------------------------------------------------------------------
+            
+        
+            
+            //            if let startAngle1_1 = startAngle1_1, let endAngle1_1 = endAngle1_1, pointAngle > startAngle1_1 && pointAngle < endAngle1_1 {
+            //                print("1")
+            //                return
+            //            }
+            //
+            //            if let startAngle1_2 = startAngle1_2, let endAngle1_2 = endAngle1_2, pointAngle > startAngle1_2 && pointAngle < endAngle1_2 {
+            //                print("1")
+            //                return
+            //            }
+            //
+            //            if let startAngle1_3 = startAngle1_3, let endAngle1_3 = endAngle1_3, pointAngle > startAngle1_3 && pointAngle < endAngle1_3 {
+            //                print("1")
+            //                return
+            //            }
+            //
+            //            if let startAngle1_4 = startAngle1_4, let endAngle1_4 = endAngle1_4, pointAngle > startAngle1_4 && pointAngle < endAngle1_4 {
+            //                print("1")
+            //                return
+            //            }
+            // --------------------------------------------------------------------
+        }
+    }
+    
+    struct CircleShapeAngles {
+        var s1: CGFloat?
+        var e1: CGFloat?
+        var s2: CGFloat?
+        var e2: CGFloat?
+        var s3: CGFloat?
+        var e3: CGFloat?
+        var s4: CGFloat?
+        var e4: CGFloat?
+    }
+    
+    private func performActionWhenTouch(circleShapeAngles: CircleShapeAngles, pointAngle: CGFloat, action: (String) -> Void, str: String) {
+        if let s1 = circleShapeAngles.s1, pointAngle >= s1 {
+            if let e1 = circleShapeAngles.e1, pointAngle <= e1 {
+                action(str)
+                return
             }
             
+            if let e2 = circleShapeAngles.e2, pointAngle <= e2 {
+                action(str)
+                return
+            }
+            
+            if let e3 = circleShapeAngles.e3, pointAngle <= e3 {
+                action(str)
+                return
+            }
+            
+            if let e4 = circleShapeAngles.e4, pointAngle <= e4 {
+                action(str)
+                return
+            }
+        }
+        
+        if let s2 = circleShapeAngles.s2, pointAngle >= s2 {
+            if let e1 = circleShapeAngles.e1, pointAngle <= e1 {
+                action(str)
+                return
+            }
+            
+            if let e2 = circleShapeAngles.e2, pointAngle <= e2 {
+                action(str)
+                return
+            }
+            
+            if let e3 = circleShapeAngles.e3, pointAngle <= e3 {
+                action(str)
+                return
+            }
+            
+            if let e4 = circleShapeAngles.e4, pointAngle <= e4 {
+                action(str)
+                return
+            }
+        }
+        
+        if let s3 = circleShapeAngles.s3, pointAngle >= s3 {
+            if let e1 = circleShapeAngles.e1, pointAngle <= e1 {
+                action(str)
+                return
+            }
+            
+            if let e2 = circleShapeAngles.e2, pointAngle <= e2 {
+                action(str)
+                return
+            }
+            
+            if let e3 = circleShapeAngles.e3, pointAngle <= e3 {
+                action(str)
+                return
+            }
+            
+            if let e4 = circleShapeAngles.e4, pointAngle <= e4 {
+                action(str)
+                return
+            }
+        }
+        
+        if let s4 = circleShapeAngles.s4, pointAngle >= s4 {
+            if let e1 = circleShapeAngles.e1, pointAngle <= e1 {
+                action(str)
+                return
+            }
+            
+            if let e2 = circleShapeAngles.e2, pointAngle <= e2 {
+                action(str)
+                return
+            }
+            
+            if let e3 = circleShapeAngles.e3, pointAngle <= e3 {
+                action(str)
+                return
+            }
+            
+            if let e4 = circleShapeAngles.e4, pointAngle <= e4 {
+                action(str)
+                return
+            }
         }
     }
     
