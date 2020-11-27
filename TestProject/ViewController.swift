@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        chart.progressArray = [0.1435, 0.5441, 0.0234, 0.0545, 0.2345]
+        chart.progressArray = [0.1435, 0.0234, 0.5441, 0.0545, 0.2345]
 //        chart.progressArray = [0.1435, 0.0234]
 //        chart.progressArray = [0.2,0.4]
         
