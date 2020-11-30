@@ -16,18 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chart_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Hgx-9L-zez">
-                                <rect key="frame" x="102" y="343" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Hgx-9L-zez" secondAttribute="height" multiplier="1:1" id="H8P-3c-j9o"/>
-                                    <constraint firstAttribute="width" constant="200" id="zI7-2g-Wbh"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0NA-16-Z90" customClass="DonutChart" customModule="TestProject" customModuleProvider="target">
-                                <rect key="frame" x="135" y="376" width="144" height="144"/>
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="143.75" id="7gE-jO-eDk"/>
+                                    <constraint firstAttribute="width" constant="300" id="7gE-jO-eDk"/>
                                     <constraint firstAttribute="width" secondItem="0NA-16-Z90" secondAttribute="height" multiplier="1:1" id="tQj-JY-GH8"/>
                                 </constraints>
                             </view>
@@ -35,9 +28,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="0NA-16-Z90" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V02-RE-jx0"/>
-                            <constraint firstItem="Hgx-9L-zez" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-5" id="WUj-bb-AKu"/>
                             <constraint firstItem="0NA-16-Z90" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qkC-xc-8wY"/>
-                            <constraint firstItem="Hgx-9L-zez" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-5" id="za3-c1-V9Y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -50,7 +41,4 @@
             <point key="canvasLocation" x="141" y="133"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="chart_bg" width="167.5" height="168"/>
-    </resources>
 </document>

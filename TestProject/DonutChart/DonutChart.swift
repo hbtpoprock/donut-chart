@@ -11,6 +11,8 @@ import UIKit
 
 class DonutChart: UIView {
     
+    @IBOutlet weak var bgImage: UIImageView!
+
     private let circleShape1 = CAShapeLayer()
     private let circleShape2 = CAShapeLayer()
     private let circleShape3 = CAShapeLayer()
@@ -128,7 +130,34 @@ class DonutChart: UIView {
     }
     
     func initView() {
-//        self.layer.cornerRadius = self.frame.width/2
+        let imageView: UIImageView = {
+            let imageView = UIImageView(frame: .zero)
+            imageView.image = UIImage(named: "chart_bg")
+            imageView.contentMode = .scaleToFill
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            return imageView
+        }()
+        
+        self.insertSubview(imageView, at: 0)
+        
+        let conWidth = imageView.widthAnchor.constraint(equalToConstant: self.layer.bounds.width*200/144)
+        let conHeight = imageView.heightAnchor.constraint(equalToConstant: self.layer.bounds.height*200/144)
+        conWidth.isActive = true
+        conHeight.isActive = true
+        
+        print(imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).constant)
+        print(imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).constant)
+        
+        let conX = imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let conY = imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        conX.constant = -5*self.layer.bounds.width/144
+        conY.constant = -5*self.layer.bounds.height/144
+        conX.isActive = true
+        conY.isActive = true
+        
+//        print(self.layer.bounds.width)
+//        print(self.layer.bounds.height)
+        
         
         addSubview(progressValueLabel1)
         addSubview(progressValueLabel2)
