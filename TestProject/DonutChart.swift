@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DonutChartUIView: UIView {
+class DonutChart: UIView {
     
     private let circleShape1 = CAShapeLayer()
     private let circleShape2 = CAShapeLayer()
