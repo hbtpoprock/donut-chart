@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="width" constant="200" id="zI7-2g-Wbh"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0NA-16-Z90" customClass="DonutChartUIView" customModule="TestProject" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0NA-16-Z90" customClass="DonutChart" customModule="TestProject" customModuleProvider="target">
                                 <rect key="frame" x="135" y="376" width="144" height="144"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>

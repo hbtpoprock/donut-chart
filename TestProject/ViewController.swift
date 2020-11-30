@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var chart: DonutChartUIView!
+    @IBOutlet weak var chart: DonutChart!
     
     override func viewDidLoad() {
         super.viewDidLoad()

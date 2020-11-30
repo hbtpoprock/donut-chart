@@ -14,7 +14,7 @@
 		8F2B7F3225601FC5009E8B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F2B7F3125601FC5009E8B6A /* Assets.xcassets */; };
 		8F2B7F3525601FC5009E8B6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F2B7F3325601FC5009E8B6A /* LaunchScreen.storyboard */; };
 		8F2B7F4025601FC5009E8B6A /* TestProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B7F3F25601FC5009E8B6A /* TestProjectTests.swift */; };
-		8F2B7F58256CCFDD009E8B6A /* DonutChartUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B7F57256CCFDD009E8B6A /* DonutChartUIView.swift */; };
+		8F2B7F58256CCFDD009E8B6A /* DonutChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B7F57256CCFDD009E8B6A /* DonutChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,7 @@
 		8F2B7F3B25601FC5009E8B6A /* TestProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F2B7F3F25601FC5009E8B6A /* TestProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectTests.swift; sourceTree = "<group>"; };
 		8F2B7F4125601FC5009E8B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8F2B7F57256CCFDD009E8B6A /* DonutChartUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartUIView.swift; sourceTree = "<group>"; };
+		8F2B7F57256CCFDD009E8B6A /* DonutChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 			children = (
 				8F2B7F2825601FC3009E8B6A /* AppDelegate.swift */,
 				8F2B7F2A25601FC3009E8B6A /* SceneDelegate.swift */,
-				8F2B7F57256CCFDD009E8B6A /* DonutChartUIView.swift */,
+				8F2B7F57256CCFDD009E8B6A /* DonutChart.swift */,
 				8F2B7F2C25601FC3009E8B6A /* ViewController.swift */,
 				8F2B7F2E25601FC3009E8B6A /* Main.storyboard */,
 				8F2B7F3125601FC5009E8B6A /* Assets.xcassets */,
@@ -203,7 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F2B7F58256CCFDD009E8B6A /* DonutChartUIView.swift in Sources */,
+				8F2B7F58256CCFDD009E8B6A /* DonutChart.swift in Sources */,
 				8F2B7F2D25601FC3009E8B6A /* ViewController.swift in Sources */,
 				8F2B7F2925601FC3009E8B6A /* AppDelegate.swift in Sources */,
 				8F2B7F2B25601FC3009E8B6A /* SceneDelegate.swift in Sources */,
