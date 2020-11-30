@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var chart: CircularProgressMeter!
+    @IBOutlet weak var chart: DonutChartUIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
