@@ -11,8 +11,6 @@ import UIKit
 
 class DonutChart: UIView {
     
-    @IBOutlet weak var bgImage: UIImageView!
-
     private let circleShape1 = CAShapeLayer()
     private let circleShape2 = CAShapeLayer()
     private let circleShape3 = CAShapeLayer()
@@ -145,19 +143,12 @@ class DonutChart: UIView {
         conWidth.isActive = true
         conHeight.isActive = true
         
-        print(imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).constant)
-        print(imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).constant)
-        
         let conX = imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         let conY = imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        conX.constant = -5*self.layer.bounds.width/144
-        conY.constant = -5*self.layer.bounds.height/144
+        conX.constant = self.layer.bounds.width * -5/144
+        conY.constant = self.layer.bounds.height * -5/144
         conX.isActive = true
         conY.isActive = true
-        
-//        print(self.layer.bounds.width)
-//        print(self.layer.bounds.height)
-        
         
         addSubview(progressValueLabel1)
         addSubview(progressValueLabel2)
