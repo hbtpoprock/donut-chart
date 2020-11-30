@@ -81,9 +81,9 @@
 		8F2B7F2725601FC3009E8B6A /* TestProject */ = {
 			isa = PBXGroup;
 			children = (
+				8F6858352574EB77006E5A18 /* DonutChart */,
 				8F2B7F2825601FC3009E8B6A /* AppDelegate.swift */,
 				8F2B7F2A25601FC3009E8B6A /* SceneDelegate.swift */,
-				8F2B7F57256CCFDD009E8B6A /* DonutChart.swift */,
 				8F2B7F2C25601FC3009E8B6A /* ViewController.swift */,
 				8F2B7F2E25601FC3009E8B6A /* Main.storyboard */,
 				8F2B7F3125601FC5009E8B6A /* Assets.xcassets */,
@@ -100,6 +100,14 @@
 				8F2B7F4125601FC5009E8B6A /* Info.plist */,
 			);
 			path = TestProjectTests;
+			sourceTree = "<group>";
+		};
+		8F6858352574EB77006E5A18 /* DonutChart */ = {
+			isa = PBXGroup;
+			children = (
+				8F2B7F57256CCFDD009E8B6A /* DonutChart.swift */,
+			);
+			path = DonutChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
