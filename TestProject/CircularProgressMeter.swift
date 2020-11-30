@@ -79,35 +79,35 @@ class CircularProgressMeter: UIView {
     
     var progress1: Double = 0.0 {
         didSet{
-            progressValueLabel1.text = "red: \(Int(progress1*100))%"
+            progressValueLabel1.text = "item1: \(Int(progress1*100))%"
             self.redraw1()
         }
     }
     
     var progress2: Double = 0.0 {
         didSet{
-            progressValueLabel2.text = "green: \(Int(progress2*100))%"
+            progressValueLabel2.text = "item2: \(Int(progress2*100))%"
             self.redraw2()
         }
     }
     
     var progress3: Double = 0.0 {
         didSet{
-            progressValueLabel3.text = "blue: \(Int(progress3*100))%"
+            progressValueLabel3.text = "item3: \(Int(progress3*100))%"
             self.redraw3()
         }
     }
     
     var progress4: Double = 0.0 {
         didSet{
-            progressValueLabel4.text = "orange: \(Int(progress4*100))%"
+            progressValueLabel4.text = "item4: \(Int(progress4*100))%"
             self.redraw4()
         }
     }
     
     var progress5: Double = 0.0 {
         didSet{
-            progressValueLabel5.text = "yellow: \(Int(progress5*100))%"
+            progressValueLabel5.text = "item5: \(Int(progress5*100))%"
             self.redraw5()
         }
     }
@@ -137,12 +137,12 @@ class CircularProgressMeter: UIView {
         addSubview(progressValueLabel5)
         addSubview(tabLabel)
         
-        addSublayer(caShapeLayer: backFillCircle, uiColor: UIColor.lightGray)
-        addSublayer(caShapeLayer: circleShape1, uiColor: UIColor.red)
-        addSublayer(caShapeLayer: circleShape2, uiColor: UIColor.green)
-        addSublayer(caShapeLayer: circleShape3, uiColor: UIColor.blue)
-        addSublayer(caShapeLayer: circleShape4, uiColor: UIColor.orange)
-        addSublayer(caShapeLayer: circleShape5, uiColor: UIColor.yellow)
+        addSublayer(caShapeLayer: backFillCircle, uiColor: UIColor.clear)
+        addSublayer(caShapeLayer: circleShape1, uiColor: UIColor(red: 0.925, green: 0.757, blue: 0.631, alpha: 1))
+        addSublayer(caShapeLayer: circleShape2, uiColor: UIColor(red: 0.914, green: 0.51, blue: 0.459, alpha: 1))
+        addSublayer(caShapeLayer: circleShape3, uiColor: UIColor(red: 0.451, green: 0.345, blue: 0.561, alpha: 1))
+        addSublayer(caShapeLayer: circleShape4, uiColor: UIColor(red: 0.518, green: 0.659, blue: 0.824, alpha: 1))
+        addSublayer(caShapeLayer: circleShape5, uiColor: UIColor(red: 0.404, green: 0.729, blue: 0.714, alpha: 1))
     }
     
     override func layoutSubviews() {
@@ -152,42 +152,42 @@ class CircularProgressMeter: UIView {
         progressValueLabel1.textAlignment = .center
         progressValueLabel1.frame = CGRect(
             x: 0,
-            y: bounds.midY + 75,
+            y: bounds.midY + 85,
             width: labelSize.width,
             height: labelSize.height)
         
         progressValueLabel2.textAlignment = .center
         progressValueLabel2.frame = CGRect(
             x: 0,
-            y: bounds.midY + 100,
+            y: bounds.midY + 110,
             width: labelSize.width,
             height: labelSize.height)
         
         progressValueLabel3.textAlignment = .center
         progressValueLabel3.frame = CGRect(
             x: 0,
-            y: bounds.midY + 125,
+            y: bounds.midY + 135,
             width: labelSize.width,
             height: labelSize.height)
         
         progressValueLabel4.textAlignment = .center
         progressValueLabel4.frame = CGRect(
             x: 0,
-            y: bounds.midY + 150,
+            y: bounds.midY + 160,
             width: labelSize.width,
             height: labelSize.height)
         
         progressValueLabel5.textAlignment = .center
         progressValueLabel5.frame = CGRect(
             x: 0,
-            y: bounds.midY + 175,
+            y: bounds.midY + 185,
             width: labelSize.width,
             height: labelSize.height)
         
         tabLabel.textAlignment = .center
         tabLabel.frame = CGRect(
             x: 0,
-            y: bounds.midY - 175,
+            y: bounds.midY - 150,
             width: labelSize.width,
             height: labelSize.height)
         
@@ -265,9 +265,12 @@ class CircularProgressMeter: UIView {
         endAngle5 = startAngle5! + CGFloat(availableRadians*progress5)
     }
     
-    func myPrint(str: String) {
-        tabLabel.text = "tab: \(str)"
-        print(str)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        circleShape1.strokeColor = UIColor(red: 0.925, green: 0.757, blue: 0.631, alpha: 1).cgColor
+        circleShape2.strokeColor = UIColor(red: 0.914, green: 0.51, blue: 0.459, alpha: 1).cgColor
+        circleShape3.strokeColor = UIColor(red: 0.451, green: 0.345, blue: 0.561, alpha: 1).cgColor
+        circleShape4.strokeColor = UIColor(red: 0.518, green: 0.659, blue: 0.824, alpha: 1).cgColor
+        circleShape5.strokeColor = UIColor(red: 0.404, green: 0.729, blue: 0.714, alpha: 1).cgColor
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -291,34 +294,40 @@ class CircularProgressMeter: UIView {
             
 //            print("pointAngle: \(pointAngle)")
             
-            performActionWhenTouch(startAngle: startAngle1, endAngle: endAngle1, pointAngle: pointAngle, action: myPrint, str: "red")
-            performActionWhenTouch(startAngle: startAngle2, endAngle: endAngle2, pointAngle: pointAngle, action: myPrint, str: "green")
-            performActionWhenTouch(startAngle: startAngle3, endAngle: endAngle3, pointAngle: pointAngle, action: myPrint, str: "blue")
-            performActionWhenTouch(startAngle: startAngle4, endAngle: endAngle4, pointAngle: pointAngle, action: myPrint, str: "orange")
-            performActionWhenTouch(startAngle: startAngle5, endAngle: endAngle5, pointAngle: pointAngle, action: myPrint, str: "yellow")
+            performActionWhenTouch(startAngle: startAngle1, endAngle: endAngle1, pointAngle: pointAngle, action: changeColor, str: "item1", uiColor: UIColor(red: 0.892, green: 0.64, blue: 0.453, alpha: 1), caShapeLayer: circleShape1)
+            performActionWhenTouch(startAngle: startAngle2, endAngle: endAngle2, pointAngle: pointAngle, action: changeColor, str: "item2", uiColor: UIColor(red: 0.812, green: 0.347, blue: 0.288, alpha: 1), caShapeLayer: circleShape2)
+            performActionWhenTouch(startAngle: startAngle3, endAngle: endAngle3, pointAngle: pointAngle, action: changeColor, str: "item3", uiColor: UIColor(red: 0.357, green: 0.163, blue: 0.558, alpha: 1), caShapeLayer: circleShape3)
+            performActionWhenTouch(startAngle: startAngle4, endAngle: endAngle4, pointAngle: pointAngle, action: changeColor, str: "item4", uiColor: UIColor(red: 0.259, green: 0.486, blue: 0.75, alpha: 1), caShapeLayer: circleShape4)
+            performActionWhenTouch(startAngle: startAngle5, endAngle: endAngle5, pointAngle: pointAngle, action: changeColor, str: "item5", uiColor: UIColor(red: 0.229, green: 0.625, blue: 0.606, alpha: 1), caShapeLayer: circleShape5)
         }
     }
     
-    private func performActionWhenTouch(startAngle: CGFloat?, endAngle: CGFloat?, pointAngle: CGFloat, action: (String) -> Void, str: String) {
+    private func changeColor(str: String, uiColor: UIColor, caShapeLayer: CAShapeLayer) {
+        tabLabel.text = "tab: \(str)"
+        caShapeLayer.strokeColor = uiColor.cgColor
+        print(str)
+    }
+    
+    private func performActionWhenTouch(startAngle: CGFloat?, endAngle: CGFloat?, pointAngle: CGFloat, action: (String, UIColor, CAShapeLayer) -> Void, str: String, uiColor: UIColor, caShapeLayer: CAShapeLayer) {
         if var startAngle = startAngle, var endAngle = endAngle {
             startAngle = startAngle > CGFloat.pi*2 ? startAngle - CGFloat.pi*2 : startAngle
             endAngle = endAngle > CGFloat.pi*2 ? endAngle - CGFloat.pi*2 : endAngle
             
             if startAngle <= endAngle {
                 if pointAngle >= startAngle && pointAngle <= endAngle {
-                    action(str)
+                    action(str, uiColor, caShapeLayer)
                 }
             } else {
                 if startAngle...CGFloat.pi*2 ~= pointAngle || 0...endAngle ~= pointAngle {
-                    action(str)
+                    action(str, uiColor, caShapeLayer)
                 }
             }
         }
     }
     
-    private func addSublayer(caShapeLayer: CAShapeLayer, uiColor: UIColor, lineWidth: CGFloat = 10) {
+    private func addSublayer(caShapeLayer: CAShapeLayer, uiColor: UIColor, lineWidth: CGFloat = 7.5) {
         let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = min(bounds.width, bounds.height) * 0.40
+        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
         let path = UIBezierPath(
             arcCenter: center,
             radius: radius,
@@ -328,7 +337,7 @@ class CircularProgressMeter: UIView {
         
         self.layer.addSublayer(caShapeLayer)
         caShapeLayer.strokeColor = uiColor.cgColor
-        caShapeLayer.lineWidth = 10
+        caShapeLayer.lineWidth = lineWidth
         caShapeLayer.lineCap = CAShapeLayerLineCap.round
         caShapeLayer.fillColor = nil
         caShapeLayer.path = nil
@@ -338,7 +347,7 @@ class CircularProgressMeter: UIView {
     
     private func addPath(to caShapeLayer: CAShapeLayer, availableRadians: Double, progress: Double ) {
         let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = min(bounds.width, bounds.height) * 0.40
+        let radius: CGFloat = min(bounds.width, bounds.height) * 0.45
         let path = UIBezierPath(
             arcCenter: center,
             radius: radius,
