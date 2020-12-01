@@ -48,7 +48,7 @@ class DonutChart: UIView {
     
     var startAngle2: CGFloat?
     var endAngle2: CGFloat?
-
+    
     var startAngle3: CGFloat?
     var endAngle3: CGFloat?
     
@@ -68,7 +68,7 @@ class DonutChart: UIView {
             numberOfItems = progressArray.count
             
             if numberOfItems > 1 {
-                availableRadians = availableRadians - spaceBetweenLine*Double(numberOfItems)
+                availableRadians -= spaceBetweenLine*Double(numberOfItems)
             }
             
             if progressArray.count > 0 {
@@ -332,9 +332,9 @@ class DonutChart: UIView {
         let topBoundingRect = CGRect(x: 0, y: 0, width: circleRadius*2, height: circleRadius*2)
         
         if abs(dist - circleRadius) <= maxDiff && topBoundingRect.contains(CGPoint(x: point.x, y: point.y)) {
-            let pointAngle = getAngle(x: point.x, y: point.y, centerX: circleCenterX, centerY: circleCenterY)
+            let pointAngle = getAngle(posX: point.x, posY: point.y, centerX: circleCenterX, centerY: circleCenterY)
             
-//            print("pointAngle: \(pointAngle)")
+            // print("pointAngle: \(pointAngle)")
             
             performActionWhenTouch(startAngle: startAngle1, endAngle: endAngle1, pointAngle: pointAngle, action: changeColor, str: "item1", uiColor: UIColor(red: 0.892, green: 0.64, blue: 0.453, alpha: 1), caShapeLayer: circleShape1)
             performActionWhenTouch(startAngle: startAngle2, endAngle: endAngle2, pointAngle: pointAngle, action: changeColor, str: "item2", uiColor: UIColor(red: 0.812, green: 0.347, blue: 0.288, alpha: 1), caShapeLayer: circleShape2)
@@ -472,10 +472,10 @@ class DonutChart: UIView {
         }
     }
     
-    private func getAngle(x: CGFloat, y: CGFloat, centerX: CGFloat, centerY: CGFloat) -> CGFloat {
-        let dx = x - centerX
+    private func getAngle(posX: CGFloat, posY: CGFloat, centerX: CGFloat, centerY: CGFloat) -> CGFloat {
+        let dx = posX - centerX
         // Minus to correct for coord re-mapping
-        let dy = -(y - centerY)
+        let dy = -(posY - centerY)
         var inRads = Double(atan2(dy, dx))
         
         // We need to map to coord system when 0 degree is at 3 O'clock, 270 at 12 O'clock
