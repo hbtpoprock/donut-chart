@@ -194,35 +194,35 @@ class DonutChart: UIView {
         progressValueLabel1.textAlignment = .center
         progressValueLabel1.frame = CGRect(
             x: 0,
-            y: bounds.midY + 85,
+            y: bounds.midY + 110,
             width: labelSize.width,
             height: labelSize.height)
         
         progressValueLabel2.textAlignment = .center
         progressValueLabel2.frame = CGRect(
             x: 0,
-            y: bounds.midY + 110,
+            y: bounds.midY + 135,
             width: labelSize.width,
             height: labelSize.height)
         
         progressValueLabel3.textAlignment = .center
         progressValueLabel3.frame = CGRect(
             x: 0,
-            y: bounds.midY + 135,
+            y: bounds.midY + 160,
             width: labelSize.width,
             height: labelSize.height)
         
         progressValueLabel4.textAlignment = .center
         progressValueLabel4.frame = CGRect(
             x: 0,
-            y: bounds.midY + 160,
+            y: bounds.midY + 185,
             width: labelSize.width,
             height: labelSize.height)
         
         progressValueLabel5.textAlignment = .center
         progressValueLabel5.frame = CGRect(
             x: 0,
-            y: bounds.midY + 185,
+            y: bounds.midY + 210,
             width: labelSize.width,
             height: labelSize.height)
         
