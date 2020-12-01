@@ -11,6 +11,22 @@ import UIKit
 
 class DonutChart: UIView {
     
+    private let chartBackground: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage(named: "chart_bg")
+        imageView.contentMode = .scaleToFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private let circleShadow: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage(named: "circle_shadow")
+        imageView.contentMode = .scaleToFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     private let circleShape1 = CAShapeLayer()
     private let circleShape2 = CAShapeLayer()
     private let circleShape3 = CAShapeLayer()
@@ -127,28 +143,34 @@ class DonutChart: UIView {
         self.initView()
     }
     
+    func setOffset(for uiImageView: UIImageView, constrWidth: CGFloat, constrHeight: CGFloat, centerX: CGFloat, centerY: CGFloat) {
+        let constrWidth = uiImageView.widthAnchor.constraint(equalToConstant: constrWidth)
+        let constrHeight = uiImageView.heightAnchor.constraint(equalToConstant: constrHeight)
+        constrWidth.isActive = true
+        constrHeight.isActive = true
+        
+        let constrX = uiImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let constrY = uiImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        constrX.constant = centerX
+        constrY.constant = centerY
+        constrX.isActive = true
+        constrY.isActive = true
+    }
+    
     func initView() {
-        let imageView: UIImageView = {
-            let imageView = UIImageView(frame: .zero)
-            imageView.image = UIImage(named: "chart_bg")
-            imageView.contentMode = .scaleToFill
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            return imageView
-        }()
+        self.insertSubview(chartBackground, at: 0)
+        setOffset(for: chartBackground,
+                  constrWidth: self.layer.bounds.width*200/144,
+                  constrHeight: self.layer.bounds.height*200/144,
+                  centerX: self.layer.bounds.width * -5/144,
+                  centerY: self.layer.bounds.height * -5/144)
         
-        self.insertSubview(imageView, at: 0)
-        
-        let conWidth = imageView.widthAnchor.constraint(equalToConstant: self.layer.bounds.width*200/144)
-        let conHeight = imageView.heightAnchor.constraint(equalToConstant: self.layer.bounds.height*200/144)
-        conWidth.isActive = true
-        conHeight.isActive = true
-        
-        let conX = imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        let conY = imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        conX.constant = self.layer.bounds.width * -5/144
-        conY.constant = self.layer.bounds.height * -5/144
-        conX.isActive = true
-        conY.isActive = true
+        self.insertSubview(circleShadow, at: 0)
+        setOffset(for: circleShadow,
+                  constrWidth: self.layer.bounds.width,
+                  constrHeight: self.layer.bounds.height*62/144,
+                  centerX: 0,
+                  centerY: self.layer.bounds.height*92/144)
         
         addSubview(progressValueLabel1)
         addSubview(progressValueLabel2)
