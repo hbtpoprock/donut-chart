@@ -2,8 +2,8 @@
 //  DonutChart.swift
 //  TestProject
 //
-//  Created by itribdev5 on 24/11/20.
-//  Copyright © 2020 itribdev5. All rights reserved.
+//  Created by itribdev5 on 30/11/20.
+//  Copyright © 2020 kkp. All rights reserved.
 //
 
 import Foundation
@@ -94,35 +94,35 @@ class DonutChart: UIView {
     }
     
     var progress1: Double = 0.0 {
-        didSet{
+        didSet {
             progressValueLabel1.text = "item1: \(Int(progress1*100))%"
             self.redraw1()
         }
     }
     
     var progress2: Double = 0.0 {
-        didSet{
+        didSet {
             progressValueLabel2.text = "item2: \(Int(progress2*100))%"
             self.redraw2()
         }
     }
     
     var progress3: Double = 0.0 {
-        didSet{
+        didSet {
             progressValueLabel3.text = "item3: \(Int(progress3*100))%"
             self.redraw3()
         }
     }
     
     var progress4: Double = 0.0 {
-        didSet{
+        didSet {
             progressValueLabel4.text = "item4: \(Int(progress4*100))%"
             self.redraw4()
         }
     }
     
     var progress5: Double = 0.0 {
-        didSet{
+        didSet {
             progressValueLabel5.text = "item5: \(Int(progress5*100))%"
             self.redraw5()
         }
@@ -399,7 +399,7 @@ class DonutChart: UIView {
         caShapeLayer.path = path.cgPath
     }
     
-    private func getRotateAnimation(from fromCaTransform3D: CATransform3D,to toCaTransform3D: CATransform3D, beginTime: CFTimeInterval = 0, duration: CFTimeInterval) -> CABasicAnimation {
+    private func getRotateAnimation(from fromCaTransform3D: CATransform3D, to toCaTransform3D: CATransform3D, beginTime: CFTimeInterval = 0, duration: CFTimeInterval) -> CABasicAnimation {
         let animation = CABasicAnimation(keyPath: "transform")
         animation.fromValue = fromCaTransform3D
         animation.toValue = toCaTransform3D
@@ -487,7 +487,7 @@ class DonutChart: UIView {
 
 extension CAShapeLayer {
     
-    func add(anim: CAAnimation, forKey: String?, completion: @escaping () -> () = {}) {
+    func add(anim: CAAnimation, forKey: String?, completion: @escaping () -> Void = {}) {
         UIView.animate(withDuration: 0, animations: { self.add(anim, forKey: forKey) }) { _ in
             completion()
         }
