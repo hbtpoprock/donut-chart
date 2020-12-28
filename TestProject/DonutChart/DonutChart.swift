@@ -244,6 +244,11 @@ class DonutChart: UIView {
         
         startAngle1 = CGFloat.pi*1.5
         endAngle1 = startAngle1! + CGFloat(availableRadians*progress1)
+        
+        if numberOfItems == 1 && progress1 == 1 {
+            startAngle1 = CGFloat.pi*1.5
+            endAngle1 = CGFloat.pi*1.5*0.999999999
+        }
     }
     
     func redraw2() {
